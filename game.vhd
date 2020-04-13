@@ -2,11 +2,11 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity Game is						
-    Port (
-           --vector of following format { [X1],[X2],[X3],[X4]  ,  [Y1],[Y2],[Y3],[Y4] }
+entity Game is
+	Port (
+			--vector of following format { [X1],[X2],[X3],[X4]  ,  [Y1],[Y2],[Y3],[Y4] }
 			DISPLAY_CHUNK : in STD_LOGIC_VECTOR (7 downto 0) := "11111111";	
-    		OBJECT_ID : out STD_LOGIC_VECTOR (2 downto 0) := "000");
+			OBJECT_ID : out STD_LOGIC_VECTOR (2 downto 0) := "000");
 end Game;
 
 architecture Behavioral of Game is
