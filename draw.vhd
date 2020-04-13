@@ -25,8 +25,8 @@ architecture Behavioral of Draw is
 	constant bombRGB : std_logic_vector(2 downto 0) := "011";		--OBJECT_ID=011 bomb
 	constant heroRGB_1 : std_logic_vector(2 downto 0) := "100";		--OBJECT_ID=100 hero nr 1
 	constant heroRGB_2 : std_logic_vector(2 downto 0) := "101";		--OBJECT_ID=101 hero nr 2
-	constant heroAndBombRGB_1 : std_logic_vector(2 downto 0) := "110";		--OBJECT_ID=110 hero nr 1 + bomb
-	constant heroAndBombRGB_2 : std_logic_vector(2 downto 0) := "111";		--OBJECT_ID=111 hero nr 2 + bomb
+	constant heroAndBombRGB_1 : std_logic_vector(2 downto 0) := "100";		--OBJECT_ID=110 hero nr 1 + bomb
+	constant heroAndBombRGB_2 : std_logic_vector(2 downto 0) := "101";		--OBJECT_ID=111 hero nr 2 + bomb
 begin
 
 	mapToChunk:
@@ -54,11 +54,13 @@ begin
 		elsif ( OBJECT_ID = 3) then
 			RGB <= bombRGB;
 		elsif ( OBJECT_ID = 4) then
-			RGB <= heroAndBomb;
-		elsif ( OBJECT_ID = 5) then
 			RGB <= heroRGB_1;
-		elsif ( OBJECT_ID = 6) then
+		elsif ( OBJECT_ID = 5) then
 			RGB <= heroRGB_2;
+		elsif ( OBJECT_ID = 6) then
+			RGB <= heroAndBombRGB_1;
+		elsif ( OBJECT_ID = 7) then
+			RGB <= heroAndBombRGB_2;
 		else
 			RGB <= backgroundRGB;
 		end if;
