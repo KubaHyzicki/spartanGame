@@ -18,8 +18,7 @@ architecture Behavioral of Picture is
 	signal locX : integer range 0 to 641 := 10;
 	signal locY : integer range 0 to 481 := 10;
 
-	--constant chunkSize : integer := 40;
-	constant chunkRadius : integer := 20;
+	constant chunkSize : integer := 40;
 	
 	constant wallRGB : std_logic_vector(2 downto 0) := "001";
 
@@ -31,7 +30,7 @@ begin
 	checkHero:
 	process(PIX_X, PIX_Y, heroX, heroY)
 	begin
-		if (PIX_X > heroX - chunkRadius and PIX_X < heroX + chunkRadius and PIX_Y > heroY - chunkRadius and PIX_Y < heroY + chunkRadius) then
+		if (PIX_X > heroX * chunkSize and PIX_X < heroX * chunkSize + chunkSize and PIX_Y > heroY * chunkSize and PIX_Y < heroY * chunkSize + chunkSize) then
 			isHero <= 1;
 		else
 			isHero <= 0;
