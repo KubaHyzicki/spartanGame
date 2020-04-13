@@ -20,7 +20,9 @@ architecture Behavioral of Draw is
 	constant chunkAmount : integer := 10;
 
 	constant wallRGB : std_logic_vector(2 downto 0) := "001";
-	constant heroRGB : std_logic_vector(2 downto 0) := "010";
+	constant bombRGB : std_logic_vector(2 downto 0) := "011";
+	constant heroRGB_1 : std_logic_vector(2 downto 0) := "010";
+	constant heroRGB_2 : std_logic_vector(2 downto 0) := "010";
 	constant backgroundRGB : std_logic_vector(2 downto 0) := "000";
 begin
 
@@ -47,7 +49,11 @@ begin
 		elsif (OBJECT_ID = 1) then
 			RGB <= wallRGB;
 		elsif ( OBJECT_ID = 2) then
-			RGB <= heroRGB;
+			RGB <= bombRGB;
+		elsif ( OBJECT_ID = 3) then
+			RGB <= heroRGB_1;
+		elsif ( OBJECT_ID = 4) then
+			RGB <= heroRGB_2;
 		else
 			RGB <= backgroundRGB;
 		end if;
