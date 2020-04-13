@@ -44,9 +44,9 @@ begin
 	begin
 		if (OBJECT_ID = 0) then
 			RGB <= backgroundRGB;
-		else if (OBJECT_ID = 1) then
+		elsif (OBJECT_ID = 1) then
 			RGB <= wallRGB;
-		else if ( OBJECT_ID = 2) then
+		elsif ( OBJECT_ID = 2) then
 			RGB <= heroRGB;
 		else
 			RGB <= backgroundRGB;
