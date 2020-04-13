@@ -19,7 +19,12 @@ begin
 	begin
 		constant boardX : integer := to_integer(signed(DISPLAY_CHUNK(7 downto 4)));
 		constant boardY : integer := to_integer(signed(DISPLAY_CHUNK(3 downto 0)));
-		OBJECT_ID <= gameBoard(boardX, boardY);
+		if (chunkX_int > 9 or chunkY_int > 9) then
+			--default value to be ignored(to be mapped by game to background)
+			OBJECT_ID = "000";
+		else
+			OBJECT_ID <= gameBoard(boardX, boardY);
+			end if;
 	end process;
 end Behavioral;
 	

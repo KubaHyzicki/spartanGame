@@ -19,11 +19,13 @@ architecture Behavioral of Draw is
 	constant chunkSize : integer := 40;
 	constant chunkAmount : integer := 10;
 
-	constant wallRGB : std_logic_vector(2 downto 0) := "001";
-	constant bombRGB : std_logic_vector(2 downto 0) := "011";
-	constant heroRGB_1 : std_logic_vector(2 downto 0) := "010";
-	constant heroRGB_2 : std_logic_vector(2 downto 0) := "010";
 	constant backgroundRGB : std_logic_vector(2 downto 0) := "000";
+	constant emptyRGB : std_logic_vector(2 downto 0) := "001";		--OBJECT_ID=000 neither hero nor bomb nor wall
+	constant wallRGB : std_logic_vector(2 downto 0) := "010";		--OBJECT_ID=010 wall
+	constant bombRGB : std_logic_vector(2 downto 0) := "011";		--OBJECT_ID=011 bomb
+	constant heroAndBomb : std_logic_vector(2 downto 0) := "100";   --OBJECT_ID=100 bomb+hero
+	constant heroRGB_1 : std_logic_vector(2 downto 0) := "101";		--OBJECT_ID=101 hero nr 1
+	constant heroRGB_2 : std_logic_vector(2 downto 0) := "110";		--OBJECT_ID=110 hero nr 2
 begin
 
 	mapToChunk:
@@ -44,19 +46,20 @@ begin
 	mapToRGB:
 	process(OBJECT_ID)
 	begin
-		if (OBJECT_ID = 0) then
-			RGB <= backgroundRGB;
-		elsif (OBJECT_ID = 1) then
-			RGB <= wallRGB;
+		if (OBJECT_ID = 1) then
+			RGB <= emptyRGB;
 		elsif ( OBJECT_ID = 2) then
-			RGB <= bombRGB;
+			RGB <= wallRGB;
 		elsif ( OBJECT_ID = 3) then
-			RGB <= heroRGB_1;
+			RGB <= bombRGB;
 		elsif ( OBJECT_ID = 4) then
+			RGB <= heroAndBomb;
+		elsif ( OBJECT_ID = 5) then
+			RGB <= heroRGB_1;
+		elsif ( OBJECT_ID = 6) then
 			RGB <= heroRGB_2;
 		else
 			RGB <= backgroundRGB;
 		end if;
 	end process;
 end Behavioral;
-	
