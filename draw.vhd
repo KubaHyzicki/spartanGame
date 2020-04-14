@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use IEEE.MATH_REAL.ALL
+use IEEE.MATH_REAL.ALL;
 
 entity Draw is
 	Port ( PIX_X : in  STD_LOGIC_VECTOR (9 downto 0);
